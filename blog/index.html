@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary SEO -->
+  <title>Blog — Arktiv | AI Skills, Prompts &amp; Marketing Intelligence</title>
+  <meta name="description" content="Insights on AI skills management, prompt engineering, and how high-performing marketing teams are scaling with AI. Practical strategies from the Arktiv team." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://arktiv.io/blog/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://arktiv.io/blog/" />
+  <meta property="og:title" content="Blog — Arktiv | AI Skills, Prompts &amp; Marketing Intelligence" />
+  <meta property="og:description" content="Insights on AI skills management, prompt engineering, and scaling marketing teams with AI." />
+  <meta property="og:image" content="https://arktiv.io/assets/og-image.png" />
+  <meta property="og:site_name" content="Arktiv" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Blog — Arktiv" />
+  <meta name="twitter:description" content="Practical strategies for AI-powered marketing teams." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+
+  <!-- Manifest & Theme -->
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#5b5ef4" />
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Arktiv Blog",
+    "url": "https://arktiv.io/blog/",
+    "description": "Insights on AI skills management, prompt engineering, and scaling marketing teams with AI.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Arktiv",
+      "url": "https://arktiv.io",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://arktiv.io/assets/favicon.svg"
+      }
+    }
+  }
+  </script>
+
+  <!-- Google Analytics GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D9FJMCFXXF"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-D9FJMCFXXF');</script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Shared styles -->
+  <link rel="stylesheet" href="/assets/css/shared.css" />
+
+  <style>
+    /* ── BLOG HEADER ── */
+    .blog-header {
+      background: var(--slate-50);
+      border-bottom: 1px solid var(--slate-300);
+      padding: 64px 5% 56px;
+      margin-top: 64px;
+    }
+    .blog-header-inner { max-width: 1100px; margin: 0 auto; }
+    .blog-header h1 {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      color: var(--slate-900);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .blog-header p {
+      font-size: 18px;
+      color: var(--slate-500);
+      line-height: 1.6;
+      max-width: 560px;
+    }
+
+    /* ── BLOG GRID ── */
+    .blog-body { padding: 56px 5%; }
+    .blog-body-inner { max-width: 1100px; margin: 0 auto; }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 32px;
+    }
+
+    .post-card {
+      border: 1.5px solid var(--slate-300);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      transition: border-color .2s, box-shadow .2s, transform .2s;
+    }
+    .post-card:hover {
+      border-color: var(--indigo-mid);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+    }
+    .post-thumb {
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      background: var(--indigo-light);
+    }
+    .post-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .post-date { font-size: 12px; color: var(--slate-500); }
+    .post-card h2 {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -.3px;
+      color: var(--slate-900);
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+    .post-excerpt {
+      font-size: 14px;
+      color: var(--slate-500);
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 20px;
+    }
+    .post-read-more {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--indigo);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Featured post */
+    .post-card.featured {
+      grid-column: 1 / -1;
+      flex-direction: row;
+    }
+    .post-card.featured .post-thumb {
+      width: 340px;
+      flex-shrink: 0;
+      height: auto;
+      min-height: 220px;
+      font-size: 64px;
+    }
+
+    /* ── CTA STRIP ── */
+    .blog-cta {
+      background: linear-gradient(135deg, var(--indigo) 0%, #8b5cf6 100%);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      margin-top: 64px;
+      text-align: center;
+      color: var(--white);
+    }
+    .blog-cta h2 { font-size: 26px; font-weight: 800; margin-bottom: 10px; letter-spacing: -.5px; }
+    .blog-cta p { font-size: 16px; opacity: .8; margin-bottom: 28px; }
+    .btn-white {
+      background: var(--white);
+      color: var(--indigo);
+      border: none;
+      padding: 14px 28px;
+      border-radius: var(--radius);
+      font-size: 15px;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: transform .15s, box-shadow .2s;
+      box-shadow: 0 4px 16px rgba(0,0,0,.15);
+    }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,.2); }
+
+    @media (max-width: 768px) {
+      .post-card.featured { flex-direction: column; }
+      .post-card.featured .post-thumb { width: 100%; height: 180px; }
+      .blog-cta { padding: 32px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<a href="#main" class="skip-nav">Skip to main content</a>
+
+<!-- ── MODAL (static for Netlify Forms detection) ── -->
+<div id="leadModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalHeading">
+  <div class="modal-card">
+    <button class="modal-close" aria-label="Close modal">&times;</button>
+    <div id="modalFormWrap">
+      <h2 id="modalHeading">Get early access to Arktiv</h2>
+      <p class="modal-sub">Join 340+ performance marketers on the waitlist.</p>
+      <form id="leadForm" data-netlify="true" name="lead-capture" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="lead-capture" />
+        <p style="display:none"><label>Don't fill this: <input name="bot-field" /></label></p>
+        <div class="form-group">
+          <label for="lead-name">Full name</label>
+          <input type="text" id="lead-name" name="name" placeholder="Jane Smith" required autocomplete="name" />
+        </div>
+        <div class="form-group">
+          <label for="lead-email">Work email</label>
+          <input type="email" id="lead-email" name="email" placeholder="jane@company.com" required autocomplete="email" />
+        </div>
+        <div class="form-group">
+          <label for="lead-company">Company name</label>
+          <input type="text" id="lead-company" name="company" placeholder="Acme Inc." required autocomplete="organization" />
+        </div>
+        <button type="submit" class="modal-submit" id="modalSubmitBtn">Get early access →</button>
+        <p id="modalError" class="modal-error" role="alert" style="display:none">Something went wrong. Please try again or email us directly.</p>
+      </form>
+      <p class="modal-disclaimer">No spam. No credit card. We'll reach out personally.</p>
+    </div>
+    <div class="modal-success" id="modalSuccess" aria-live="polite">
+      <div class="modal-success-icon" aria-hidden="true">🎉</div>
+      <h3 tabindex="-1">You're on the list!</h3>
+      <p>Thanks for your interest in Arktiv. We'll be in touch personally when your beta spot is ready.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── NAV ── -->
+<nav aria-label="Main navigation">
+  <a href="/" class="nav-logo" aria-label="Arktiv home">
+    <div class="nav-logo-mark" aria-hidden="true">
+      <svg viewBox="0 0 18 18" fill="none"><rect x="2" y="2" width="6" height="6" rx="1.5" fill="white"/><rect x="10" y="2" width="6" height="6" rx="1.5" fill="white" opacity=".6"/><rect x="2" y="10" width="6" height="6" rx="1.5" fill="white" opacity=".6"/><rect x="10" y="10" width="6" height="6" rx="1.5" fill="white" opacity=".3"/></svg>
+    </div>
+    <span class="nav-logo-text">Ark<span>tiv</span></span>
+  </a>
+  <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="/#features">Features</a></li>
+    <li><a href="/#pricing">Pricing</a></li>
+    <li><a href="/blog/" class="active" aria-current="page">Blog</a></li>
+    <li><button class="nav-cta" onclick="openModal('nav')">Get early access</button></li>
+  </ul>
+</nav>
+
+<!-- ── BLOG HEADER ── -->
+<header class="blog-header">
+  <div class="blog-header-inner">
+    <div class="section-label">The Arktiv Blog</div>
+    <h1>AI skills, prompts &amp;<br>marketing intelligence</h1>
+    <p>Practical strategies for performance marketers scaling their AI output — from the team building the tools to do it.</p>
+  </div>
+</header>
+
+<!-- ── BLOG POSTS ── -->
+<main id="main" class="blog-body">
+  <div class="blog-body-inner">
+    <div class="blog-grid">
+
+      <!-- Featured post -->
+      <a href="/blog/why-github-doesnt-work-for-marketers/" class="post-card featured">
+        <div class="post-thumb" style="background:linear-gradient(135deg,#eeeffe,#c7c8fb);" aria-hidden="true">🐙</div>
+        <div class="post-body">
+          <div class="post-meta">
+            <span class="post-tag">AI Tools</span>
+            <span class="post-date">April 2026</span>
+          </div>
+          <h2>Why GitHub Doesn't Work for Marketing Teams — And What to Use Instead</h2>
+          <p class="post-excerpt">GitHub is a brilliant tool for engineering teams, but using it to manage AI prompts and marketing workflows creates more friction than it solves. Here's why version control for marketing requires a fundamentally different approach.</p>
+          <span class="post-read-more">Read article →</span>
+        </div>
+      </a>
+
+      <!-- Post 2 -->
+      <a href="/blog/how-to-scale-ai-for-enterprise-marketing/" class="post-card">
+        <div class="post-thumb" style="background:linear-gradient(135deg,#f0fdf4,#bbf7d0);" aria-hidden="true">🏢</div>
+        <div class="post-body">
+          <div class="post-meta">
+            <span class="post-tag">Enterprise AI</span>
+            <span class="post-date">April 2026</span>
+          </div>
+          <h2>How to Scale AI Use Across an Enterprise Marketing Team</h2>
+          <p class="post-excerpt">Most enterprise AI rollouts stall at the pilot stage. The teams that successfully scale AI do five things differently — and none of them are about the technology.</p>
+          <span class="post-read-more">Read article →</span>
+        </div>
+      </a>
+
+      <!-- Post 3 -->
+      <a href="/blog/controlling-ai-within-your-company/" class="post-card">
+        <div class="post-thumb" style="background:linear-gradient(135deg,#fff7ed,#fed7aa);" aria-hidden="true">🛡️</div>
+        <div class="post-body">
+          <div class="post-meta">
+            <span class="post-tag">AI Governance</span>
+            <span class="post-date">April 2026</span>
+          </div>
+          <h2>Controlling AI Within Your Company: A Practical Governance Framework</h2>
+          <p class="post-excerpt">Every marketing team is using AI — most just don't know which tools, which prompts, or what data is being shared. Here's a governance framework that keeps you in control without slowing your team down.</p>
+          <span class="post-read-more">Read article →</span>
+        </div>
+      </a>
+
+      <!-- Post 4 -->
+      <a href="/blog/the-ai-marketing-loop/" class="post-card">
+        <div class="post-thumb" style="background:linear-gradient(135deg,#fdf4ff,#e9d5ff);" aria-hidden="true">🔄</div>
+        <div class="post-body">
+          <div class="post-meta">
+            <span class="post-tag">Strategy</span>
+            <span class="post-date">April 2026</span>
+          </div>
+          <h2>The AI Marketing Loop: How to Build a Self-Improving Creative Engine</h2>
+          <p class="post-excerpt">The best AI-powered marketing teams don't just use AI to create — they use performance data to teach the AI what works. The result is a compounding creative advantage that widens every cycle.</p>
+          <span class="post-read-more">Read article →</span>
+        </div>
+      </a>
+
+      <!-- Post 5 -->
+      <a href="/blog/marketers-using-ai-to-scale-quickly/" class="post-card">
+        <div class="post-thumb" style="background:linear-gradient(135deg,#f0f9ff,#bae6fd);" aria-hidden="true">⚡</div>
+        <div class="post-body">
+          <div class="post-meta">
+            <span class="post-tag">Case Studies</span>
+            <span class="post-date">April 2026</span>
+          </div>
+          <h2>Best Examples of Marketers Using AI to Scale Output Quickly</h2>
+          <p class="post-excerpt">Five real-world examples of marketing teams that used AI skills to dramatically increase output without proportionally growing their team — and the specific workflows that made it possible.</p>
+          <span class="post-read-more">Read article →</span>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- CTA strip -->
+    <div class="blog-cta">
+      <h2>Ready to build your team's AI skills library?</h2>
+      <p>Join 340+ performance marketers on the Arktiv beta waitlist.</p>
+      <button class="btn-white" onclick="openModal('blog-cta')">Get early access</button>
+    </div>
+  </div>
+</main>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <a href="/" class="footer-logo" aria-label="Arktiv home">
+      <div class="footer-logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 18 18" fill="none" width="16" height="16">
+          <rect x="2" y="2" width="6" height="6" rx="1.5" fill="white"/>
+          <rect x="10" y="2" width="6" height="6" rx="1.5" fill="white" opacity=".6"/>
+          <rect x="2" y="10" width="6" height="6" rx="1.5" fill="white" opacity=".6"/>
+          <rect x="10" y="10" width="6" height="6" rx="1.5" fill="white" opacity=".3"/>
+        </svg>
+      </div>
+      <span class="footer-logo-text">Arktiv</span>
+    </a>
+    <ul class="footer-links">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/privacy/">Privacy</a></li>
+      <li><a href="#" onclick="openModal('footer');return false;">Contact</a></li>
+    </ul>
+    <span class="footer-copy">© 2026 Arktiv, Inc. All rights reserved.</span>
+  </div>
+</footer>
+
+<script src="/assets/js/modal.js"></script>
+<script src="/assets/js/nav.js"></script>
+</body>
+</html>

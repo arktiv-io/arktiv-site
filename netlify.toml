@@ -1,0 +1,41 @@
+[build]
+  publish = "."
+
+# ── SECURITY & PERFORMANCE HEADERS ───────────────────────────
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options            = "SAMEORIGIN"
+    X-Content-Type-Options     = "nosniff"
+    Referrer-Policy            = "strict-origin-when-cross-origin"
+    Permissions-Policy         = "camera=(), microphone=(), geolocation=()"
+    Strict-Transport-Security  = "max-age=31536000; includeSubDomains; preload"
+    # CSP: includes all GA4 regional endpoints and HubSpot
+    Content-Security-Policy    = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://api.hsforms.com https://js.hsforms.net https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://region1.analytics.google.com https://api.hsforms.com; frame-src 'none';"
+
+# ── ASSET CACHING ─────────────────────────────────────────────
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# ── REDIRECTS ─────────────────────────────────────────────────
+# Canonical trailing slash for /blog
+[[redirects]]
+  from   = "/blog"
+  to     = "/blog/"
+  status = 301
+  force  = true
+
+# Canonical trailing slash for /privacy
+[[redirects]]
+  from   = "/privacy"
+  to     = "/privacy/"
+  status = 301
+  force  = true
+
+# Custom 404 — do NOT redirect to index.html (that confuses crawlers)
+[[redirects]]
+  from   = "/*"
+  to     = "/404.html"
+  status = 404

@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary SEO -->
+  <title>Controlling AI Within Your Company: A Practical Governance Framework — Arktiv</title>
+  <meta name="description" content="Shadow AI tools, rogue prompts, and data leakage risk are out of control. Here's a practical 4-pillar governance framework that keeps your company in control without slowing teams down." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://arktiv.io/blog/controlling-ai-within-your-company/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://arktiv.io/blog/controlling-ai-within-your-company/" />
+  <meta property="og:title" content="Controlling AI Within Your Company: A Practical Governance Framework — Arktiv" />
+  <meta property="og:description" content="A governance framework that keeps you in control without slowing your team down." />
+  <meta property="og:image" content="https://arktiv.io/assets/og-image.png" />
+  <meta property="og:site_name" content="Arktiv" />
+  <meta property="article:published_time" content="2026-04-10" />
+  <meta property="article:author" content="Arktiv Team" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Controlling AI Within Your Company: A Practical Governance Framework" />
+  <meta name="twitter:description" content="Shadow AI tools, rogue prompts, and data leakage risk are out of control. Here's what to do about it." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#5b5ef4" />
+
+  <!-- JSON-LD Article Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Controlling AI Within Your Company: A Practical Governance Framework",
+    "description": "Shadow AI tools, rogue prompts, and data leakage risk are out of control. Here's a practical 4-pillar governance framework that keeps your company in control without slowing teams down.",
+    "url": "https://arktiv.io/blog/controlling-ai-within-your-company/",
+    "datePublished": "2026-04-10",
+    "dateModified": "2026-04-10",
+    "author": { "@type": "Organization", "name": "Arktiv", "url": "https://arktiv.io" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Arktiv",
+      "url": "https://arktiv.io",
+      "logo": { "@type": "ImageObject", "url": "https://arktiv.io/assets/favicon.svg" }
+    },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://arktiv.io/blog/controlling-ai-within-your-company/" }
+  }
+  </script>
+
+  <!-- FAQ Schema for AI search visibility -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is shadow AI and why is it a governance risk?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Shadow AI refers to AI tools and processes that operate outside of your company's awareness or control. Teams use ChatGPT, Claude, Midjourney, and custom tools without IT oversight, creating data leakage risks, compliance violations, and inconsistent output quality. Without visibility into what tools are being used and what data is being sent to them, companies expose themselves to security and regulatory risks."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can companies implement AI governance without slowing teams down?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Effective governance uses four pillars: (1) Visibility — understand what tools and prompts are in use; (2) Standardization — create approved prompts and workflows that teams can reuse; (3) Access Control — manage who can use what tools and what data they can access; (4) Performance Measurement — track AI outputs and their business impact. The key is enabling control without bureaucracy by making standardized tools frictionless to use."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What metrics should companies track for AI governance?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Track tool adoption, compliance rates, data exposure incidents, output quality metrics, business impact (ROAS, CTR, conversion rate), and team velocity. Monitor which teams are using which tools, whether unapproved tools are being used, how many prompts are standardized versus ad-hoc, and how governed AI workflows perform versus ungoverned ones. This data helps you optimize your governance framework over time."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D9FJMCFXXF"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-D9FJMCFXXF');</script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Shared styles -->
+  <link rel="stylesheet" href="/assets/css/shared.css" />
+
+  <style>
+    /* ── ARTICLE LAYOUT ── */
+    .article-hero {
+      background: var(--slate-50);
+      border-bottom: 1px solid var(--slate-300);
+      padding: 64px 5% 56px;
+      margin-top: 64px;
+    }
+    .article-hero-inner { max-width: 760px; margin: 0 auto; }
+
+    .breadcrumb {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; color: var(--slate-500);
+      margin-bottom: 24px;
+    }
+    .breadcrumb a { color: var(--indigo); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+
+    .article-hero h1 {
+      font-size: clamp(28px, 4.5vw, 46px);
+      font-weight: 900; letter-spacing: -1.5px;
+      color: var(--slate-900); line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .article-hero .lede {
+      font-size: 20px; color: var(--slate-500);
+      line-height: 1.6; margin-bottom: 28px;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 20px;
+      font-size: 13px; color: var(--slate-500);
+      border-top: 1px solid var(--slate-300);
+      padding-top: 20px; flex-wrap: wrap;
+    }
+    .article-meta-item { display: flex; align-items: center; gap: 6px; }
+
+    /* ── ARTICLE BODY ── */
+    .article-body {
+      padding: 56px 5%;
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 64px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .article-content { min-width: 0; }
+    .article-content h2 {
+      font-size: 26px; font-weight: 800;
+      letter-spacing: -.5px; color: var(--slate-900);
+      margin: 40px 0 14px; line-height: 1.2;
+    }
+    .article-content h3 {
+      font-size: 19px; font-weight: 700;
+      color: var(--slate-900); margin: 28px 0 10px;
+    }
+    .article-content p {
+      font-size: 17px; line-height: 1.78;
+      color: var(--slate-700); margin-bottom: 20px;
+    }
+    .article-content ul, .article-content ol { margin: 0 0 20px 24px; }
+    .article-content li {
+      font-size: 17px; line-height: 1.75;
+      color: var(--slate-700); margin-bottom: 8px;
+    }
+    .article-content strong { color: var(--slate-900); font-weight: 700; }
+    .article-content a { color: var(--indigo); text-decoration: underline; text-underline-offset: 3px; }
+    .article-content code {
+      background: var(--slate-100); color: var(--slate-700);
+      padding: 2px 6px; border-radius: 4px;
+      font-size: 14px; font-family: monospace;
+    }
+
+    .callout {
+      background: var(--indigo-light);
+      border-left: 4px solid var(--indigo);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 20px 24px; margin: 28px 0;
+    }
+    .callout p { margin: 0; color: var(--slate-700); font-size: 16px; }
+    .callout strong { color: var(--indigo); }
+
+    .comparison-table {
+      width: 100%; border-collapse: collapse;
+      margin: 28px 0; font-size: 14px;
+    }
+    .comparison-table th {
+      background: var(--slate-50); padding: 12px 16px;
+      text-align: left; font-weight: 700;
+      color: var(--slate-700); border: 1px solid var(--slate-300);
+    }
+    .comparison-table td {
+      padding: 12px 16px; border: 1px solid var(--slate-300);
+      color: var(--slate-700); vertical-align: top;
+    }
+    .comparison-table tr:nth-child(even) td { background: var(--slate-50); }
+    .check { color: #16a34a; font-weight: 700; }
+    .cross { color: #dc2626; font-weight: 700; }
+
+    /* ── SIDEBAR ── */
+    .sidebar-card {
+      background: var(--indigo-light);
+      border: 1.5px solid var(--indigo-mid);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      position: sticky;
+      top: 84px;
+    }
+    .sidebar-card h3 { font-size: 18px; font-weight: 800; color: var(--slate-900); margin-bottom: 8px; }
+    .sidebar-card p { font-size: 14px; color: var(--slate-500); line-height: 1.6; margin-bottom: 20px; }
+    .sidebar-btn {
+      width: 100%;
+      background: var(--indigo); color: var(--white);
+      border: none; padding: 13px 20px;
+      border-radius: var(--radius);
+      font-size: 14px; font-weight: 700; font-family: inherit;
+      cursor: pointer; transition: background .2s;
+      box-shadow: var(--shadow-lg);
+    }
+    .sidebar-btn:hover { background: var(--indigo-dark); }
+
+    /* ── RELATED POSTS ── */
+    .related-posts {
+      padding: 56px 5%;
+      background: var(--slate-50);
+      border-top: 1px solid var(--slate-300);
+    }
+    .related-inner { max-width: 1100px; margin: 0 auto; }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px; margin-top: 32px;
+    }
+    .related-card {
+      background: var(--white); border: 1.5px solid var(--slate-300);
+      border-radius: var(--radius-lg); padding: 24px;
+      text-decoration: none; color: inherit;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .related-card:hover { border-color: var(--indigo-mid); box-shadow: var(--shadow-lg); }
+    .related-card .post-tag { margin-bottom: 12px; }
+    .related-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; line-height: 1.3; }
+    .related-card p { font-size: 13px; color: var(--slate-500); line-height: 1.6; }
+
+    @media (max-width: 768px) {
+      .article-body { grid-template-columns: 1fr; gap: 40px; }
+      .article-sidebar { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<a href="#main" class="skip-nav">Skip to main content</a>
+
+<!-- ── MODAL (static for Netlify Forms detection) ── -->
+<div id="leadModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalHeading">
+  <div class="modal-card">
+    <button class="modal-close" aria-label="Close modal">&times;</button>
+    <div id="modalFormWrap">
+      <h2 id="modalHeading">Get early access to Arktiv</h2>
+      <p class="modal-sub">Join 340+ performance marketers on the waitlist.</p>
+      <form id="leadForm" data-netlify="true" name="lead-capture" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="lead-capture" />
+        <p style="display:none"><label>Don't fill this: <input name="bot-field" /></label></p>
+        <div class="form-group">
+          <label for="lead-name">Full name</label>
+          <input type="text" id="lead-name" name="name" placeholder="Jane Smith" required autocomplete="name" />
+        </div>
+        <div class="form-group">
+          <label for="lead-email">Work email</label>
+          <input type="email" id="lead-email" name="email" placeholder="jane@company.com" required autocomplete="email" />
+        </div>
+        <div class="form-group">
+          <label for="lead-company">Company name</label>
+          <input type="text" id="lead-company" name="company" placeholder="Acme Inc." required autocomplete="organization" />
+        </div>
+        <button type="submit" class="modal-submit" id="modalSubmitBtn">Get early access →</button>
+        <p id="modalError" class="modal-error" role="alert" style="display:none">Something went wrong. Please try again or email us directly.</p>
+      </form>
+      <p class="modal-disclaimer">No spam. No credit card. We'll reach out personally.</p>
+    </div>
+    <div class="modal-success" id="modalSuccess" aria-live="polite">
+      <div class="modal-success-icon" aria-hidden="true">🎉</div>
+      <h3 tabindex="-1">You're on the list!</h3>
+      <p>We'll be in touch personally when your beta spot is ready.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── NAV ── -->
+<nav aria-label="Main navigation">
+  <a href="/" class="nav-logo" aria-label="Arktiv home">
+    <div class="nav-logo-mark" aria-hidden="true">
+      <svg viewBox="0 0 18 18" fill="none"><rect x="2" y="2" width="6" height="6" rx="1.5" fill="white"/><rect x="10" y="2" width="6" height="6" rx="1.5" fill="white" opacity=".6"/><rect x="2" y="10" width="6" height="6" rx="1.5" fill="white" opacity=".6"/><rect x="10" y="10" width="6" height="6" rx="1.5" fill="white" opacity=".3"/></svg>
+    </div>
+    <span class="nav-logo-text">Ark<span>tiv</span></span>
+  </a>
+  <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="/#features">Features</a></li>
+    <li><a href="/#pricing">Pricing</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><button class="nav-cta" onclick="openModal('nav')">Get early access</button></li>
+  </ul>
+</nav>
+
+<!-- ── ARTICLE HERO ── -->
+<header class="article-hero">
+  <div class="article-hero-inner">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a> <span aria-hidden="true">›</span>
+      <a href="/blog/">Blog</a> <span aria-hidden="true">›</span>
+      <span>Controlling AI Within Your Company</span>
+    </nav>
+    <span class="post-tag">AI Governance</span>
+    <h1>Controlling AI Within Your Company: A Practical Governance Framework</h1>
+    <p class="lede">Shadow AI tools, rogue prompts, and data leakage risks have become a critical business problem. But governance doesn't have to mean bureaucracy. Here's a practical 4-pillar framework that keeps you in control without slowing teams down.</p>
+    <div class="article-meta">
+      <span class="article-meta-item"><span aria-hidden="true">📅</span> April 2026</span>
+      <span class="article-meta-item"><span aria-hidden="true">✍️</span> Arktiv Team</span>
+      <span class="article-meta-item"><span aria-hidden="true">⏱️</span> 8 min read</span>
+    </div>
+  </div>
+</header>
+
+<!-- ── ARTICLE BODY ── -->
+<main id="main">
+  <div class="article-body">
+    <article class="article-content">
+
+      <p>Your marketing team is using AI. But you have no idea which tools, which models, or what data they're sending to them.</p>
+
+      <p>This is the shadow AI problem, and it's become the defining governance challenge of 2026.</p>
+
+      <p>Someone on your team is using ChatGPT to brainstorm copy. Someone else is using Claude for research. A designer is using Midjourney without approval. A data analyst built a custom GPT in their Google account. The product team is experimenting with internal AI tools. No centralized record. No compliance oversight. No control over what happens to your company's proprietary information.</p>
+
+      <p>The risk is real. Data leakage, regulatory violations, inconsistent output quality, security vulnerabilities. But here's the catch: you can't solve shadow AI with lockdown. The moment you restrict access, productivity drops. Teams route around your controls, digging the shadow deeper.</p>
+
+      <p>The answer is governance that enables rather than restricts. A framework that gives you visibility and control while making it frictionless for teams to do their best work.</p>
+
+      <h2>The Four Pillars of AI Governance</h2>
+
+      <p>Effective AI governance rests on four pillars, each addressing a different dimension of the control problem:</p>
+
+      <h3>1. Visibility: Know What You're Using</h3>
+
+      <p>You can't govern what you can't see. Visibility means understanding what AI tools are in use, what data flows through them, who has access, and what outputs they're producing.</p>
+
+      <p>Start by auditing your tool stack. Work with IT to identify all AI tools—both approved and shadow. Then create a simple inventory: tool name, vendor, data classification (what types of company data can be used), access level (who can use it), and cost.</p>
+
+      <p>The next step is tracking usage. This doesn't mean surveillance—it means understanding adoption patterns. Are teams actually using your approved tools? Which shadows are most popular? Where is sensitive data being sent?</p>
+
+      <p>Finally, establish data flow mapping. For each AI tool, document what data goes in, what comes out, how it's stored, and who owns it. This is particularly critical for tools accessed through personal accounts.</p>
+
+      <div class="callout">
+        <p><strong>Quick win:</strong> Start with a single Slack poll asking people what AI tools they use weekly. You'll be amazed at what comes out. It creates visibility while demonstrating that you're not trying to prevent AI use—you're trying to understand it.</p>
+      </div>
+
+      <h3>2. Standardization: Make the Right Choice Easy</h3>
+
+      <p>Once you have visibility, the next step is standardization. This means creating approved workflows, blessed tools, and reusable prompts that teams naturally gravitate toward because they're easier than working around the system.</p>
+
+      <p>Standardization is about reducing friction in the path of least resistance. If your approved tool is harder to use than the shadow alternative, teams will keep using the shadow. If your approved workflow produces worse results, teams won't trust it. The solution has to be genuinely better.</p>
+
+      <p>For prompts, this means building a shared library of prompts that have been tested and proven to work. A prompt for ad copy generation. A prompt for audience research. A prompt for competitive analysis. Teams should be able to find, use, and iterate on these prompts without needing permission or asking questions.</p>
+
+      <p>For tools, establish a category system. For ad copy, use tool X. For image generation, use tool Y. Make these decisions based on security assessment (does the vendor protect your data?), cost (what's the total cost of ownership?), and output quality (do your teams get better results with this tool?).</p>
+
+      <h3>3. Access Control: Least Privilege, Maximum Trust</h3>
+
+      <p>Access control means managing who can use what tools, what data they can access, and what they can do with the outputs.</p>
+
+      <p>The principle is least privilege with maximum trust—give people the minimum access they need to do their job, but when you do grant access, make it frictionless to use. This is different from trying to prevent bad behavior. It's about making good behavior the easiest path.</p>
+
+      <p>Establish clear policies: which roles can use which tools? What types of data can be shared with each tool? Are there tools that are off-limits for anyone without explicit approval? Document this and make it accessible—no one follows rules they don't know exist.</p>
+
+      <p>For tools that access sensitive data (customer information, financial data, trade secrets), implement authentication and audit logging. For lower-risk tools, lighter-touch controls are sufficient. The level of control should match the level of risk.</p>
+
+      <h3>4. Performance Measurement: Track What Works</h3>
+
+      <p>The final pillar is measurement. You need to understand the impact of your AI governance framework over time. Is adoption of approved tools increasing? Are shadow tools declining? Is output quality improving? Are data incidents decreasing?</p>
+
+      <p>Set baseline metrics before you implement governance: tool adoption rates, compliance rates, data security incidents, time spent on AI-related tasks, quality of outputs. Then track how these metrics change as your framework matures.</p>
+
+      <p>Key metrics to track include: percentage of teams using approved tools, percentage of prompts that are standardized versus ad-hoc, number of shadow tools detected, data exposure incidents, average quality improvement of AI outputs month-over-month, and time-to-value for new AI capabilities.</p>
+
+      <p>Use this data to continuously improve your governance. If adoption is low, your approved tools might be too hard to use. If incidents keep happening in a specific area, your access controls might be insufficient. If standardized prompts aren't being used, they might not be producing good enough results.</p>
+
+      <h2>The Governance Comparison: Control Without Bureaucracy</h2>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Aspect</th>
+            <th>Lockdown Approach</th>
+            <th>Governance Framework</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tool availability</td>
+            <td class="cross">✗ Highly restricted</td>
+            <td class="check">✓ Curated, then enabled</td>
+          </tr>
+          <tr>
+            <td>Team adoption</td>
+            <td class="cross">✗ Circumvented immediately</td>
+            <td class="check">✓ Natural, sustained</td>
+          </tr>
+          <tr>
+            <td>Governance visibility</td>
+            <td class="cross">✗ Shadow use increases</td>
+            <td class="check">✓ Comprehensive, ongoing</td>
+          </tr>
+          <tr>
+            <td>Data security</td>
+            <td class="cross">✗ Drives use of unvetted tools</td>
+            <td class="check">✓ Proactive protection</td>
+          </tr>
+          <tr>
+            <td>Team velocity</td>
+            <td class="cross">✗ Slowed by restrictions</td>
+            <td class="check">✓ Accelerated by standards</td>
+          </tr>
+          <tr>
+            <td>Innovation</td>
+            <td class="cross">✗ Stalled by bureaucracy</td>
+            <td class="check">✓ Channeled, measured</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Implementation Without Bureaucracy</h2>
+
+      <p>The fear with governance is that it creates bureaucratic overhead. Here's how to avoid that trap:</p>
+
+      <p><strong>Start small.</strong> Don't try to implement all four pillars at once. Begin with visibility—understand your tool stack and data flows. Once you have visibility, move to standardization. Create a small library of approved prompts that teams can actually use without asking permission. Then add access control based on what you learned about risk. Finally, establish measurement to track what's working.</p>
+
+      <p><strong>Automate compliance.</strong> Build governance into your tools rather than relying on people to remember rules. If you're using a centralized prompt management system, build compliance checks directly into it. If teams are using third-party tools, use integrations to log usage automatically rather than asking people to fill out compliance forms.</p>
+
+      <p><strong>Make approved tools better than shadows.</strong> Your governance framework only works if your approved tools produce better results with less friction than the alternatives. Invest in making them genuinely better, not just safer. Test your standardized prompts against shadow alternatives. Make sure your approved tools integrate with your existing workflows. The goal is for teams to prefer the governed approach because it works better, not because they're forced to use it.</p>
+
+      <p><strong>Measure and iterate.</strong> Track the metrics that matter, and use that data to improve your framework. If you discover that a particular tool is causing security issues, adjust access controls. If a prompt library isn't being used, improve the prompts or make them easier to discover. Governance isn't set-and-forget—it's a continuous cycle of measurement and improvement.</p>
+
+      <div class="callout">
+        <p><strong>The real cost of shadow AI:</strong> A single data exposure incident costs more than building a proper governance framework. The question isn't whether you can afford governance—it's whether you can afford not to have it.</p>
+      </div>
+
+      <h2>Why This Matters for Marketing Teams Specifically</h2>
+
+      <p>Marketing is ground zero for shadow AI adoption. Marketers are creative, fast-moving, and eager to experiment. The moment you introduce a new AI capability, marketers want to use it immediately. This creates a unique governance challenge: you need to move at marketing speed while maintaining control.</p>
+
+      <p>The four-pillar framework addresses this by making governance something that enables speed rather than restricts it. Standardized prompts let teams move faster because they don't have to start from scratch. Approved tools integrate into your workflow. Performance measurement helps you understand what's actually working so you can double down on it.</p>
+
+      <p>The marketing teams that will dominate over the next year are the ones that crack this problem—that build governance frameworks allowing them to experiment fast while maintaining control. Shadow AI holds you back. Real governance propels you forward.</p>
+
+      <h2>Frequently Asked Questions</h2>
+
+      <h3>What is shadow AI and why is it a governance risk?</h3>
+      <p>Shadow AI refers to AI tools and processes that operate outside of your company's awareness or control. Teams use ChatGPT, Claude, Midjourney, and custom tools without IT oversight, creating data leakage risks, compliance violations, and inconsistent output quality. Without visibility into what tools are being used and what data is being sent to them, companies expose themselves to security and regulatory risks.</p>
+
+      <h3>How can companies implement AI governance without slowing teams down?</h3>
+      <p>Effective governance uses four pillars: (1) Visibility—understand what tools and prompts are in use; (2) Standardization—create approved prompts and workflows that teams can reuse; (3) Access Control—manage who can use what tools and what data they can access; (4) Performance Measurement—track AI outputs and their business impact. The key is enabling control without bureaucracy by making standardized tools frictionless to use.</p>
+
+      <h3>What metrics should companies track for AI governance?</h3>
+      <p>Track tool adoption, compliance rates, data exposure incidents, output quality metrics, business impact (ROAS, CTR, conversion rate), and team velocity. Monitor which teams are using which tools, whether unapproved tools are being used, how many prompts are standardized versus ad-hoc, and how governed AI workflows perform versus ungoverned ones. This data helps you optimize your governance framework over time.</p>
+
+    </article>
+
+    <!-- ── SIDEBAR ── -->
+    <aside class="article-sidebar" aria-label="Article sidebar">
+      <div class="sidebar-card">
+        <h3>Bring AI under control</h3>
+        <p>Arktiv's governance features give you visibility, standardization, and performance tracking without slowing teams down.</p>
+        <button class="sidebar-btn" onclick="openModal('source')">Get early access →</button>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<!-- ── RELATED POSTS ── -->
+<section class="related-posts" aria-label="Related articles">
+  <div class="related-inner">
+    <h2 style="font-size:24px;font-weight:800;letter-spacing:-.5px;margin-bottom:4px;">Keep reading</h2>
+    <p style="font-size:15px;color:var(--slate-500);">More on AI governance and marketing intelligence</p>
+    <div class="related-grid">
+      <a href="/blog/why-github-doesnt-work-for-marketers/" class="related-card">
+        <span class="post-tag">AI Tools</span>
+        <h3>Why GitHub Doesn't Work for Marketing Teams</h3>
+        <p>GitHub is brilliant for engineers but creates friction for marketers managing AI prompts. Here's what to use instead.</p>
+      </a>
+      <a href="/blog/how-to-scale-ai-for-enterprise-marketing/" class="related-card">
+        <span class="post-tag">Enterprise AI</span>
+        <h3>How to Scale AI Use Across an Enterprise Marketing Team</h3>
+        <p>Most enterprise AI rollouts stall at the pilot stage. Here's what the teams that successfully scale AI do differently.</p>
+      </a>
+      <a href="/blog/the-ai-marketing-loop/" class="related-card">
+        <span class="post-tag">Strategy</span>
+        <h3>The AI Marketing Loop: How to Build a Self-Improving Creative Engine</h3>
+        <p>The best AI-powered marketing teams use performance data to teach the AI what works. The result compounds every cycle.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <a href="/" class="footer-logo" aria-label="Arktiv home">
+      <div class="footer-logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 18 18" fill="none" width="16" height="16">
+          <rect x="2" y="2" width="6" height="6" rx="1.5" fill="white"/>
+          <rect x="10" y="2" width="6" height="6" rx="1.5" fill="white" opacity=".6"/>
+          <rect x="2" y="10" width="6" height="6" rx="1.5" fill="white" opacity=".6"/>
+          <rect x="10" y="10" width="6" height="6" rx="1.5" fill="white" opacity=".3"/>
+        </svg>
+      </div>
+      <span class="footer-logo-text">Arktiv</span>
+    </a>
+    <ul class="footer-links">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/privacy/">Privacy</a></li>
+      <li><a href="#" onclick="openModal('source');return false;">Contact</a></li>
+    </ul>
+    <span class="footer-copy">© 2026 Arktiv, Inc. All rights reserved.</span>
+  </div>
+</footer>
+
+<script src="/assets/js/modal.js"></script>
+<script src="/assets/js/nav.js"></script>
+</body>
+</html>

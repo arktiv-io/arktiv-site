@@ -1,0 +1,21 @@
+{
+  "name": "Arktiv — AI Skills Platform",
+  "short_name": "Arktiv",
+  "description": "The shared repository for your team's AI skills and the outputs they create.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#ffffff",
+  "theme_color": "#5b5ef4",
+  "icons": [
+    {
+      "src": "/assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary SEO -->
+  <title>Arktiv — Unify, Learn, and Share Your Team's AI Skills</title>
+  <meta name="description" content="Arktiv is the shared repository for AI skills and the outputs they create. Version-control your prompts, track every result, and ensure your whole team builds on what actually works." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://arktiv.io/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://arktiv.io/" />
+  <meta property="og:title" content="Arktiv — Unify, Learn, and Share Your Team's AI Skills" />
+  <meta property="og:description" content="The shared repository for AI skills and the outputs they create. Version-control your prompts, track every result, and ensure your whole team builds on what actually works." />
+  <meta property="og:image" content="https://arktiv.io/assets/og-image.png" />
+  <meta property="og:site_name" content="Arktiv" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Arktiv — Unify, Learn, and Share Your Team's AI Skills" />
+  <meta name="twitter:description" content="The shared repository for AI skills and the outputs they create. Version-control your prompts, track every result." />
+  <meta name="twitter:image" content="https://arktiv.io/assets/og-image.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+
+  <!-- Manifest & Theme -->
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#5b5ef4" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Shared styles -->
+  <link rel="stylesheet" href="/assets/css/shared.css" />
+
+  <!-- JSON-LD: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Arktiv",
+    "url": "https://arktiv.io",
+    "description": "The shared repository for AI skills and the outputs they create.",
+    "sameAs": []
+  }
+  </script>
+
+  <!-- JSON-LD: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Arktiv",
+    "url": "https://arktiv.io",
+    "description": "The shared repository for AI skills and the outputs they create. Version-control your prompts, track every result, and ensure your whole team builds on what actually works.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Starter",
+        "price": "99",
+        "priceCurrency": "USD",
+        "description": "Per month, 1 user. Includes 1 Meta Ads account, 500 assets, unlimited Prompt Vault, daily sync."
+      },
+      {
+        "@type": "Offer",
+        "name": "Team",
+        "price": "299",
+        "priceCurrency": "USD",
+        "description": "Per month, up to 5 users. Includes 3 Meta Ads accounts, unlimited assets, Skills Vault with team sharing."
+      }
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "Arktiv",
+      "url": "https://arktiv.io"
+    }
+  }
+  </script>
+
+  <!-- Google Analytics GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D9FJMCFXXF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-D9FJMCFXXF');
+  </script>
+
+  <style>
+    /* ── PAGE-SPECIFIC STYLES ── */
+
+    /* Hero */
+    .hero {
+      padding: 140px 5% 100px;
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--indigo-light);
+      color: var(--indigo);
+      border: 1px solid var(--indigo-mid);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 28px;
+      letter-spacing: .01em;
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 6vw, 68px);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -2px;
+      color: var(--slate-900);
+      margin-bottom: 22px;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--indigo) 0%, #8b5cf6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: clamp(17px, 2.2vw, 20px);
+      line-height: 1.6;
+      color: var(--slate-500);
+      max-width: 600px;
+      margin: 0 auto 40px;
+      font-weight: 400;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .hero-social-proof {
+      font-size: 13px;
+      color: var(--slate-500);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .hero-avatars { display: flex; }
+    .hero-avatars span {
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      border: 2px solid var(--white);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 600;
+      margin-left: -6px; color: var(--white);
+    }
+    .hero-avatars span:first-child { margin-left: 0; }
+    .av1{background:#6366f1;}.av2{background:#8b5cf6;}.av3{background:#ec4899;}.av4{background:#f59e0b;}.av5{background:#10b981;}
+
+    /* Hero visual */
+    .hero-visual { max-width: 1000px; margin: 60px auto 0; position: relative; }
+    .dashboard-mockup {
+      background: var(--white);
+      border: 1.5px solid var(--slate-300);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 24px 80px rgba(0,0,0,0.12), 0 4px 16px rgba(0,0,0,0.06);
+      overflow: hidden;
+    }
+    .mockup-topbar {
+      background: var(--slate-50); border-bottom: 1px solid var(--slate-300);
+      padding: 12px 18px; display: flex; align-items: center; gap: 10px;
+    }
+    .mockup-dots{display:flex;gap:6px;}
+    .mockup-dot{width:11px;height:11px;border-radius:50%;}
+    .dot-red{background:#ff5f57;}.dot-yellow{background:#febc2e;}.dot-green{background:#28c840;}
+    .mockup-url {
+      flex:1;background:var(--slate-300);border-radius:6px;height:22px;
+      max-width:320px;margin:0 auto;display:flex;align-items:center;padding:0 12px;gap:6px;
+    }
+    .mockup-url-text{font-size:11px;color:var(--slate-500);font-weight:500;}
+    .mockup-body{display:grid;grid-template-columns:200px 1fr;min-height:360px;}
+    .mockup-sidebar{background:var(--slate-50);border-right:1px solid var(--slate-300);padding:20px 0;}
+    .sidebar-section{padding:6px 18px;margin-bottom:4px;}
+    .sidebar-label{font-size:10px;font-weight:700;color:var(--slate-500);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;}
+    .sidebar-item{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:8px;font-size:12px;font-weight:500;color:var(--slate-700);margin-bottom:2px;}
+    .sidebar-item.active{background:var(--indigo-light);color:var(--indigo);}
+    .sidebar-item-dot{width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.5;}
+    .mockup-main{padding:22px;}
+    .mockup-header-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;}
+    .mockup-title{font-size:15px;font-weight:700;color:var(--slate-900);}
+    .mockup-subtitle{font-size:11px;color:var(--slate-500);margin-top:2px;}
+    .mockup-btn{background:var(--indigo);color:var(--white);border:none;padding:6px 14px;border-radius:6px;font-size:11px;font-weight:600;}
+    .mockup-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px;}
+    .stat-card{background:var(--slate-50);border:1px solid var(--slate-300);border-radius:10px;padding:12px;}
+    .stat-label{font-size:10px;color:var(--slate-500);font-weight:500;margin-bottom:4px;}
+    .stat-value{font-size:18px;font-weight:800;color:var(--slate-900);}
+    .stat-delta{font-size:10px;font-weight:600;color:var(--green);margin-top:2px;}
+    .mockup-table-header{display:grid;grid-template-columns:2fr 1.2fr 1fr 1fr 1fr 80px;gap:8px;padding:8px 12px;background:var(--slate-50);border:1px solid var(--slate-300);border-radius:8px 8px 0 0;font-size:10px;font-weight:700;color:var(--slate-500);text-transform:uppercase;letter-spacing:.06em;}
+    .mockup-table-row{display:grid;grid-template-columns:2fr 1.2fr 1fr 1fr 1fr 80px;gap:8px;padding:10px 12px;border:1px solid var(--slate-300);border-top:none;font-size:11px;color:var(--slate-700);align-items:center;transition:background .15s;}
+    .mockup-table-row:last-child{border-radius:0 0 8px 8px;}
+    .mockup-table-row:hover{background:var(--slate-50);}
+    .asset-name-cell{display:flex;align-items:center;gap:8px;}
+    .asset-thumb{width:28px;height:28px;border-radius:5px;flex-shrink:0;}
+    .asset-name-text{font-weight:600;font-size:11px;color:var(--slate-900);}
+    .asset-ver{font-size:9px;color:var(--slate-500);}
+    .roas-badge{background:#dcfce7;color:#15803d;border-radius:5px;padding:3px 7px;font-size:10px;font-weight:700;display:inline-block;}
+    .roas-badge.warn{background:#fef3c7;color:#92400e;}
+    .roas-badge.good{background:#dbeafe;color:#1d4ed8;}
+    .ai-tag{background:var(--indigo-light);color:var(--indigo);border-radius:4px;padding:2px 6px;font-size:10px;font-weight:700;}
+
+    /* Sections */
+    section{padding:80px 5%;}
+    .section-inner{max-width:1100px;margin:0 auto;}
+
+    /* Problem */
+    .problem{background:var(--slate-50);}
+    .problem-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:48px;}
+    .problem-card{background:var(--white);border:1px solid var(--slate-300);border-radius:var(--radius);padding:28px;transition:box-shadow .2s,transform .2s;}
+    .problem-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px);}
+    .problem-icon{font-size:28px;margin-bottom:14px;}
+    .problem-card h3{font-size:16px;font-weight:700;margin-bottom:10px;}
+    .problem-card p{font-size:14px;color:var(--slate-500);line-height:1.6;}
+
+    /* Features */
+    #features .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px;margin-top:48px;}
+    .feature-card{border:1.5px solid var(--slate-300);border-radius:var(--radius-lg);padding:32px;transition:border-color .2s,box-shadow .2s,transform .2s;}
+    .feature-card:hover{border-color:var(--indigo-mid);box-shadow:var(--shadow-lg);transform:translateY(-4px);}
+    .feature-icon{width:48px;height:48px;background:var(--indigo-light);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:20px;}
+    .feature-card h3{font-size:18px;font-weight:700;margin-bottom:10px;letter-spacing:-.3px;}
+    .feature-card p{font-size:14px;color:var(--slate-500);line-height:1.65;}
+
+    /* How it works */
+    #how{background:var(--slate-50);}
+    .steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;margin-top:48px;position:relative;}
+    .steps-grid::before{content:'';position:absolute;top:28px;left:0;right:0;height:1px;background:var(--slate-300);z-index:0;}
+    .step{text-align:center;padding:0 24px;position:relative;z-index:1;}
+    .step-num{width:56px;height:56px;background:var(--white);border:2px solid var(--indigo);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:900;color:var(--indigo);margin:0 auto 20px;}
+    .step h3{font-size:16px;font-weight:700;margin-bottom:10px;}
+    .step p{font-size:14px;color:var(--slate-500);line-height:1.6;}
+
+    /* Performance visual */
+    .perf-layout{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-top:48px;}
+    .perf-visual{background:var(--white);border:1.5px solid var(--slate-300);border-radius:var(--radius-lg);padding:28px;box-shadow:var(--shadow);}
+    .perf-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;}
+    .perf-title{font-size:14px;font-weight:700;}
+    .perf-badge{background:#dcfce7;color:#15803d;font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;}
+    .perf-bar-row{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+    .perf-bar-label{font-size:12px;font-weight:500;color:var(--slate-700);width:140px;flex-shrink:0;}
+    .perf-bar-track{flex:1;height:8px;background:var(--slate-100);border-radius:999px;overflow:hidden;}
+    .perf-bar-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--indigo),#8b5cf6);}
+    .perf-bar-val{font-size:12px;font-weight:700;color:var(--slate-900);width:32px;text-align:right;}
+    .perf-copy h3{font-size:26px;font-weight:800;letter-spacing:-.5px;margin-bottom:16px;}
+    .perf-copy p{font-size:15px;color:var(--slate-500);line-height:1.7;margin-bottom:14px;}
+
+    /* Testimonials */
+    .testimonials{background:var(--slate-50);}
+    .testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:48px;}
+    .testimonial-card{background:var(--white);border:1px solid var(--slate-300);border-radius:var(--radius);padding:28px;}
+    .stars{color:#f59e0b;font-size:14px;margin-bottom:12px;letter-spacing:2px;}
+    .testimonial-text{font-size:14px;color:var(--slate-700);line-height:1.7;margin-bottom:20px;font-style:italic;}
+    .testimonial-author{display:flex;align-items:center;gap:12px;}
+    .author-avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--white);flex-shrink:0;}
+    .author-name{font-size:14px;font-weight:700;}
+    .author-title{font-size:12px;color:var(--slate-500);margin-top:2px;}
+
+    /* Pricing */
+    .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px;}
+    .pricing-card{border:1.5px solid var(--slate-300);border-radius:var(--radius-lg);padding:32px;position:relative;transition:transform .2s,box-shadow .2s;}
+    .pricing-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+    .pricing-card.featured{border-color:var(--indigo);box-shadow:0 0 0 1px var(--indigo),var(--shadow-lg);}
+    .pricing-featured-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--indigo);color:var(--white);font-size:11px;font-weight:700;padding:4px 14px;border-radius:999px;white-space:nowrap;}
+    .pricing-plan{font-size:13px;font-weight:700;color:var(--slate-500);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;}
+    .pricing-price{font-size:40px;font-weight:900;color:var(--slate-900);letter-spacing:-1px;margin-bottom:4px;}
+    .pricing-price sup{font-size:20px;vertical-align:super;}
+    .pricing-price-note{font-size:13px;color:var(--slate-500);margin-bottom:20px;}
+    .pricing-divider{border:none;border-top:1px solid var(--slate-300);margin:20px 0;}
+    .pricing-features{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px;}
+    .pricing-features li{font-size:14px;color:var(--slate-700);display:flex;align-items:center;gap:8px;}
+    .pricing-features li::before{content:'✓';color:var(--indigo);font-weight:700;font-size:13px;}
+    .pricing-note{text-align:center;font-size:14px;color:var(--slate-500);margin-top:32px;}
+    .pricing-note strong{color:var(--indigo);}
+
+    /* Final CTA */
+    .final-cta{background:linear-gradient(135deg,var(--slate-900) 0%,#1e1b4b 100%);text-align:center;}
+    .final-cta .section-title{color:var(--white);}
+    .final-cta .section-subtitle{color:rgba(255,255,255,.65);margin:0 auto 40px;}
+    .cta-disclaimer{font-size:13px;color:rgba(255,255,255,.45);margin-top:16px;}
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .mockup-body{grid-template-columns:1fr;}
+      .mockup-sidebar{display:none;}
+      .mockup-stats{grid-template-columns:repeat(2,1fr);}
+      .mockup-table-header,.mockup-table-row{grid-template-columns:2fr 1fr 80px;}
+      .mockup-table-header span:nth-child(3),.mockup-table-header span:nth-child(4),
+      .mockup-table-row span:nth-child(3),.mockup-table-row span:nth-child(4){display:none;}
+      .perf-layout{grid-template-columns:1fr;}
+      .steps-grid::before{display:none;}
+      .pricing-grid{grid-template-columns:1fr;max-width:420px;margin-left:auto;margin-right:auto;}
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-nav">Skip to main content</a>
+
+  <!-- ── LEAD CAPTURE MODAL ── -->
+  <div id="leadModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+      <div id="modalFormWrap">
+        <div class="modal-badge"><span class="hero-badge-dot"></span> Now accepting early beta applications</div>
+        <h2 id="modalTitle">Get early access to Arktiv</h2>
+        <p class="modal-sub">Join 340+ performance marketers. We'll reach out when your spot is ready — no credit card, no commitment.</p>
+        <form id="leadForm" data-netlify="true" name="lead-capture" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="lead-capture" />
+          <p style="display:none"><label>Don't fill this: <input name="bot-field" /></label></p>
+          <div class="form-group">
+            <label for="lead-name">Full name</label>
+            <input type="text" id="lead-name" name="name" placeholder="Jane Smith" required autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label for="lead-email">Work email</label>
+            <input type="email" id="lead-email" name="email" placeholder="jane@company.com" required autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label for="lead-company">Company name</label>
+            <input type="text" id="lead-company" name="company" placeholder="Acme Inc." required autocomplete="organization" />
+          </div>
+          <button type="submit" class="modal-submit" id="modalSubmitBtn">Get early access →</button>
+          <p id="modalError" class="modal-error" style="display:none">Something went wrong. Please try again or reach out directly.</p>
+        </form>
+        <p class="modal-disclaimer">No spam. No credit card. We'll reach out personally.</p>
+      </div>
+      <div class="modal-success" id="modalSuccess" aria-live="polite">
+        <div class="modal-success-icon">🎉</div>
+        <h3>You're on the list!</h3>
+        <p>Thanks for your interest in Arktiv. We'll be in touch personally when your beta spot is ready.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── NAV ── -->
+  <nav id="mainNav">
+    <a href="/" class="nav-logo" aria-label="Arktiv home">
+      <div class="nav-logo-mark">
+        <svg viewBox="0 0 18 18" fill="none" aria-hidden="true">
+          <rect x="2" y="2" width="6" height="6" rx="1.5" fill="white"/>
+          <rect x="10" y="2" width="6" height="6" rx="1.5" fill="white" opacity=".6"/>
+          <rect x="2" y="10" width="6" height="6" rx="1.5" fill="white" opacity=".6"/>
+          <rect x="10" y="10" width="6" height="6" rx="1.5" fill="white" opacity=".3"/>
+        </svg>
+      </div>
+      <span class="nav-logo-text">Ark<span>tiv</span></span>
+    </a>
+    <ul class="nav-links" id="navLinks" role="list">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><button class="nav-cta" onclick="openModal('nav')">Get early access</button></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <main id="main">
+  <section class="hero">
+    <div class="hero-badge"><span class="hero-badge-dot"></span> Now accepting early beta applications</div>
+    <h1>Your team runs on AI.<br><em>Arktiv keeps everyone in sync.</em></h1>
+    <p class="hero-sub">The shared repository for your AI skills and the outputs they create. Unify your team's prompts, version-control what works, and make sure no one is starting from scratch — ever again.</p>
+    <div class="hero-cta-group">
+      <button class="btn-primary" onclick="openModal('hero')">Get early access</button>
+    </div>
+    <div class="hero-social-proof">
+      <div class="hero-avatars" aria-hidden="true">
+        <span class="av1">JK</span><span class="av2">SR</span><span class="av3">ML</span><span class="av4">TP</span><span class="av5">AW</span>
+      </div>
+      <span>Join <strong>340+</strong> performance marketers on the waitlist</span>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="dashboard-mockup">
+        <div class="mockup-topbar">
+          <div class="mockup-dots"><div class="mockup-dot dot-red"></div><div class="mockup-dot dot-yellow"></div><div class="mockup-dot dot-green"></div></div>
+          <div class="mockup-url"><span class="mockup-url-text">app.arktiv.io / skills-vault</span></div>
+        </div>
+        <div class="mockup-body">
+          <div class="mockup-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-label">Workspace</div>
+              <div class="sidebar-item active"><span class="sidebar-item-dot"></span> Skills Vault</div>
+              <div class="sidebar-item"><span class="sidebar-item-dot"></span> Output Library</div>
+              <div class="sidebar-item"><span class="sidebar-item-dot"></span> Performance</div>
+              <div class="sidebar-item"><span class="sidebar-item-dot"></span> Ad Accounts</div>
+            </div>
+            <div class="sidebar-section" style="margin-top:12px;">
+              <div class="sidebar-label">Categories</div>
+              <div class="sidebar-item"><span class="sidebar-item-dot"></span> Image Generation</div>
+              <div class="sidebar-item"><span class="sidebar-item-dot"></span> Copywriting</div>
+              <div class="sidebar-item"><span class="sidebar-item-dot"></span> Video Scripts</div>
+            </div>
+          </div>
+          <div class="mockup-main">
+            <div class="mockup-header-row">
+              <div><div class="mockup-title">Skills Vault</div><div class="mockup-subtitle">47 skills · 12 team members · last updated 4 min ago</div></div>
+              <button class="mockup-btn">+ New Skill</button>
+            </div>
+            <div class="mockup-stats">
+              <div class="stat-card"><div class="stat-label">Active Skills</div><div class="stat-value">47</div><div class="stat-delta">↑ 8 added this week</div></div>
+              <div class="stat-card"><div class="stat-label">Versions Tracked</div><div class="stat-value">214</div><div class="stat-delta">↑ 31 this month</div></div>
+              <div class="stat-card"><div class="stat-label">Outputs Generated</div><div class="stat-value">1,840</div><div class="stat-delta">↑ 340 this week</div></div>
+              <div class="stat-card"><div class="stat-label">Team Members</div><div class="stat-value">12</div><div class="stat-delta">Using shared skills</div></div>
+            </div>
+            <div class="mockup-table-header"><span>Skill name</span><span>Category</span><span>Version</span><span>Outputs</span><span>Top ROAS</span><span>Status</span></div>
+            <div class="mockup-table-row">
+              <div class="asset-name-cell"><div class="asset-thumb" style="background:linear-gradient(135deg,#6366f1,#8b5cf6);display:flex;align-items:center;justify-content:center;font-size:13px;">🖼️</div><div><div class="asset-name-text">lifestyle-ugc-hero</div><div class="asset-ver">Midjourney · by Sarah K.</div></div></div>
+              <span style="font-size:10px;color:var(--slate-500);">Image Gen</span><span><span class="ai-tag">v3.2</span></span><span style="font-weight:600;">84</span><span><span class="roas-badge">6.1×</span></span><span><span class="roas-badge">Shared</span></span>
+            </div>
+            <div class="mockup-table-row">
+              <div class="asset-name-cell"><div class="asset-thumb" style="background:linear-gradient(135deg,#f59e0b,#ef4444);display:flex;align-items:center;justify-content:center;font-size:13px;">✍️</div><div><div class="asset-name-text">hook-formula-v2</div><div class="asset-ver">GPT-4o · by Marcus T.</div></div></div>
+              <span style="font-size:10px;color:var(--slate-500);">Copywriting</span><span><span class="ai-tag">v2.0</span></span><span style="font-weight:600;">210</span><span><span class="roas-badge warn">3.8×</span></span><span><span class="roas-badge good">Draft</span></span>
+            </div>
+            <div class="mockup-table-row">
+              <div class="asset-name-cell"><div class="asset-thumb" style="background:linear-gradient(135deg,#10b981,#06b6d4);display:flex;align-items:center;justify-content:center;font-size:13px;">🎬</div><div><div class="asset-name-text">founder-script-template</div><div class="asset-ver">Claude · by Jamie L.</div></div></div>
+              <span style="font-size:10px;color:var(--slate-500);">Video Script</span><span><span class="ai-tag">v2.1</span></span><span style="font-weight:600;">56</span><span><span class="roas-badge">5.4×</span></span><span><span class="roas-badge">Shared</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROBLEM ── -->
+  <section class="problem">
+    <div class="section-inner">
+      <div class="section-label">The problem</div>
+      <h2 class="section-title" style="max-width:640px;">Everyone on your team is using AI.<br>Nobody's using the same playbook.</h2>
+      <div class="problem-grid">
+        <div class="problem-card"><div class="problem-icon">🌀</div><h3>Skills live in silos</h3><p>Your best AI prompts and workflows are stuck in individual clipboards, personal Notion docs, and private ChatGPT histories. When that person leaves — the knowledge walks out with them.</p></div>
+        <div class="problem-card"><div class="problem-icon">🔁</div><h3>No version control</h3><p>Prompts get tweaked and improved — but there's no record of what changed, why it changed, or which version produced the result you're trying to replicate.</p></div>
+        <div class="problem-card"><div class="problem-icon">📊</div><h3>Outputs disconnected from results</h3><p>You can see performance data. You can see the creative. But tracing a result back to the specific skill version that produced it? That requires manual sleuthing no one has time for.</p></div>
+        <div class="problem-card"><div class="problem-icon">⏱️</div><h3>Teams reinvent the wheel constantly</h3><p>Without a shared library of proven skills, every team member starts from scratch. You're paying for the same discovery — in time and ad spend — over and over again.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FEATURES ── -->
+  <section id="features">
+    <div class="section-inner">
+      <div class="section-label">Features</div>
+      <h2 class="section-title">Everything your team needs to scale AI output</h2>
+      <p class="section-subtitle">One platform to capture, version, share, and measure every AI skill your team creates.</p>
+      <div class="features-grid">
+        <div class="feature-card"><div class="feature-icon">🗄️</div><h3>Skills Vault</h3><p>A centralized, searchable library of every prompt, workflow, and AI skill your team has ever built. Never lose a winning formula again.</p></div>
+        <div class="feature-card"><div class="feature-icon">🔀</div><h3>Version Control</h3><p>Every change tracked, every iteration saved. See exactly what changed between versions and roll back to any point in a skill's history.</p></div>
+        <div class="feature-card"><div class="feature-icon">📈</div><h3>Performance Linking</h3><p>Connect your AI outputs to real results. See which skill version produced which creative — and tie it directly to ROAS, CTR, and conversion data.</p></div>
+        <div class="feature-card"><div class="feature-icon">👥</div><h3>Team Collaboration</h3><p>Share skills across your team with role-based permissions. Editors iterate, admins approve, everyone builds on what actually works.</p></div>
+        <div class="feature-card"><div class="feature-icon">🏷️</div><h3>Auto-Naming Engine</h3><p>Outputs are named and tagged automatically based on the skill that created them, keeping your asset library clean and traceable at scale.</p></div>
+        <div class="feature-card"><div class="feature-icon">🔌</div><h3>Ad Platform Sync</h3><p>Direct integrations with Meta Ads and more. Performance data flows in automatically — no manual exports, no spreadsheet archaeology.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HOW IT WORKS ── -->
+  <section id="how">
+    <div class="section-inner">
+      <div class="section-label">How it works</div>
+      <h2 class="section-title">From prompt to performance in four steps</h2>
+      <p class="section-subtitle">Arktiv fits into the way your team already works — it just makes the knowledge stick.</p>
+      <div class="steps-grid">
+        <div class="step"><div class="step-num">1</div><h3>Capture your skills</h3><p>Add prompts, workflows, and AI templates to the shared vault. Any tool, any model, any format.</p></div>
+        <div class="step"><div class="step-num">2</div><h3>Version as you iterate</h3><p>Every edit creates a new version. The full history stays intact so you always know what changed and why.</p></div>
+        <div class="step"><div class="step-num">3</div><h3>Share across the team</h3><p>Publish skills to your team library. Anyone can use — and improve — proven workflows without starting from zero.</p></div>
+        <div class="step"><div class="step-num">4</div><h3>Track what performs</h3><p>Connect outputs to ad performance. See which skills drive results and build your next iteration on real data.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PERFORMANCE VISUAL ── -->
+  <section>
+    <div class="section-inner">
+      <div class="perf-layout">
+        <div class="perf-visual" aria-hidden="true">
+          <div class="perf-header"><span class="perf-title">Skill Performance — Last 30 days</span><span class="perf-badge">↑ 34% avg ROAS</span></div>
+          <div class="perf-bar-row"><span class="perf-bar-label">lifestyle-ugc-hero v3</span><div class="perf-bar-track"><div class="perf-bar-fill" style="width:92%"></div></div><span class="perf-bar-val">6.1×</span></div>
+          <div class="perf-bar-row"><span class="perf-bar-label">founder-script v2.1</span><div class="perf-bar-track"><div class="perf-bar-fill" style="width:82%"></div></div><span class="perf-bar-val">5.4×</span></div>
+          <div class="perf-bar-row"><span class="perf-bar-label">testimonial-cut v4</span><div class="perf-bar-track"><div class="perf-bar-fill" style="width:72%"></div></div><span class="perf-bar-val">4.8×</span></div>
+          <div class="perf-bar-row"><span class="perf-bar-label">product-demo-A v1</span><div class="perf-bar-track"><div class="perf-bar-fill" style="width:58%"></div></div><span class="perf-bar-val">3.9×</span></div>
+          <div class="perf-bar-row"><span class="perf-bar-label">product-demo-B v1</span><div class="perf-bar-track"><div class="perf-bar-fill" style="width:46%;background:linear-gradient(90deg,#94a3b8,#cbd5e1);"></div></div><span class="perf-bar-val" style="color:var(--slate-500);">2.9×</span></div>
+        </div>
+        <div class="perf-copy">
+          <div class="section-label">Performance intelligence</div>
+          <h3>Know which skills are worth scaling — and which to retire</h3>
+          <p>Arktiv connects every output back to the skill that created it, then syncs performance data from your ad accounts automatically. You get a live leaderboard of what's actually working.</p>
+          <p>Stop guessing. Start compounding on your team's best work.</p>
+          <button class="btn-primary" onclick="openModal('perf')">See it in action</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIALS ── -->
+  <section class="testimonials">
+    <div class="section-inner">
+      <div class="section-label" style="display:block;text-align:center;">What beta testers are saying</div>
+      <h2 class="section-title" style="text-align:center;">The teams who got there first</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card"><div class="stars" aria-label="5 stars">★★★★★</div><p class="testimonial-text">"We've been searching for something like this for two years. Our prompts were scattered across Notion, Slack, and people's personal accounts. Arktiv finally made them a team asset."</p><div class="testimonial-author"><div class="author-avatar" style="background:#6366f1;" aria-hidden="true">SK</div><div><div class="author-name">Sarah K.</div><div class="author-title">Head of Performance Marketing, DTC brand</div></div></div></div>
+        <div class="testimonial-card"><div class="stars" aria-label="5 stars">★★★★★</div><p class="testimonial-text">"The Skills Vault alone is worth it. We've rebuilt our top-performing prompts three times because no one saved them properly. That stops now."</p><div class="testimonial-author"><div class="author-avatar" style="background:#8b5cf6;" aria-hidden="true">MT</div><div><div class="author-name">Marcus T.</div><div class="author-title">Performance Marketing Manager, Series B startup</div></div></div></div>
+        <div class="testimonial-card"><div class="stars" aria-label="5 stars">★★★★★</div><p class="testimonial-text">"I can finally see which skill version produced which creative — and connect it to actual ROAS. This is the missing layer between creative production and media buying."</p><div class="testimonial-author"><div class="author-avatar" style="background:#ec4899;" aria-hidden="true">JL</div><div><div class="author-name">Jamie L.</div><div class="author-title">VP Marketing, e-commerce brand · 8-person team</div></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PRICING ── -->
+  <section id="pricing">
+    <div class="section-inner" style="text-align:center;">
+      <div class="section-label">Pricing</div>
+      <h2 class="section-title">Simple, transparent pricing</h2>
+      <p class="section-subtitle" style="margin:0 auto;">Start free during beta. Lock in early-access pricing before we launch publicly.</p>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div class="pricing-plan">Starter</div>
+          <div class="pricing-price"><sup>$</sup>99</div>
+          <div class="pricing-price-note">per month · 1 user</div>
+          <hr class="pricing-divider" />
+          <ul class="pricing-features"><li>1 Meta Ads account</li><li>500 assets</li><li>Prompt Vault (unlimited)</li><li>Daily performance sync</li><li>Auto-naming engine</li><li>Email support</li></ul>
+          <button class="btn-outline" onclick="openModal('pricing-starter')">Join the beta waitlist</button>
+        </div>
+        <div class="pricing-card featured">
+          <div class="pricing-featured-badge">Most popular</div>
+          <div class="pricing-plan">Team</div>
+          <div class="pricing-price"><sup>$</sup>299</div>
+          <div class="pricing-price-note">per month · up to 5 users</div>
+          <hr class="pricing-divider" />
+          <ul class="pricing-features"><li>3 Meta Ads accounts</li><li>Unlimited assets</li><li>Skills Vault + team sharing</li><li>Daily performance sync</li><li>Auto-naming engine</li><li>Admin + editor roles</li><li>Priority support</li></ul>
+          <button class="btn-primary-block" onclick="openModal('pricing-team')">Join the beta waitlist</button>
+        </div>
+        <div class="pricing-card">
+          <div class="pricing-plan">Enterprise</div>
+          <div class="pricing-price" style="font-size:28px;padding-top:6px;">Custom</div>
+          <div class="pricing-price-note">tailored to your team's needs</div>
+          <hr class="pricing-divider" />
+          <ul class="pricing-features"><li>Unlimited ad accounts</li><li>Unlimited assets &amp; skills</li><li>SSO &amp; advanced permissions</li><li>Dedicated customer success</li><li>All Team features</li><li>Custom onboarding</li><li>SLA &amp; security review</li></ul>
+          <button class="btn-outline" onclick="openModal('pricing-enterprise')">Get in touch</button>
+        </div>
+      </div>
+      <p class="pricing-note"><strong>Beta users get 3 months free</strong> — then lock in 40% off your first year. No credit card required to join the waitlist.</p>
+    </div>
+  </section>
+
+  <!-- ── FINAL CTA ── -->
+  <section class="final-cta" id="beta">
+    <div class="section-inner">
+      <h2 class="section-title">Ready to turn your team's AI work into a shared competitive advantage?</h2>
+      <p class="section-subtitle">Beta spots are limited. Join the waitlist and we'll reach out when your spot is ready — no credit card, no commitment.</p>
+      <button class="btn-primary" onclick="openModal('final-cta')" style="font-size:16px;padding:16px 36px;">Claim my early access spot</button>
+      <p class="cta-disclaimer">No credit card required. No spam. We'll contact you when your beta spot opens.</p>
+    </div>
+  </section>
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <a href="/" class="footer-logo" aria-label="Arktiv home">
+        <div class="footer-logo-mark"><svg viewBox="0 0 18 18" fill="none" width="16" height="16" aria-hidden="true"><rect x="2" y="2" width="6" height="6" rx="1.5" fill="white"/><rect x="10" y="2" width="6" height="6" rx="1.5" fill="white" opacity=".6"/><rect x="2" y="10" width="6" height="6" rx="1.5" fill="white" opacity=".6"/><rect x="10" y="10" width="6" height="6" rx="1.5" fill="white" opacity=".3"/></svg></div>
+        <span class="footer-logo-text">Arktiv</span>
+      </a>
+      <ul class="footer-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/privacy/">Privacy</a></li>
+        <li><a href="#" onclick="openModal('footer');return false;">Contact</a></li>
+      </ul>
+      <span class="footer-copy">© 2026 Arktiv, Inc. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <!-- Shared scripts -->
+  <script src="/assets/js/modal.js"></script>
+  <script src="/assets/js/nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary SEO -->
+  <title>Why GitHub Doesn't Work for Marketing Teams — Arktiv</title>
+  <meta name="description" content="GitHub is brilliant for engineers but creates friction for marketers managing AI prompts. Here's why version control for marketing needs a different approach — and what to use instead." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://arktiv.io/blog/why-github-doesnt-work-for-marketers/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://arktiv.io/blog/why-github-doesnt-work-for-marketers/" />
+  <meta property="og:title" content="Why GitHub Doesn't Work for Marketing Teams — Arktiv" />
+  <meta property="og:description" content="GitHub is brilliant for engineers but creates friction for marketers managing AI prompts. Here's what to use instead." />
+  <meta property="og:image" content="https://arktiv.io/assets/og-image.png" />
+  <meta property="og:site_name" content="Arktiv" />
+  <meta property="article:published_time" content="2026-04-09" />
+  <meta property="article:author" content="Arktiv Team" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Why GitHub Doesn't Work for Marketing Teams" />
+  <meta name="twitter:description" content="Version control for marketers needs a different approach than GitHub." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#5b5ef4" />
+
+  <!-- JSON-LD Article Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Why GitHub Doesn't Work for Marketing Teams — And What to Use Instead",
+    "description": "GitHub is brilliant for engineers but creates friction for marketers managing AI prompts. Here's why version control for marketing needs a different approach.",
+    "url": "https://arktiv.io/blog/why-github-doesnt-work-for-marketers/",
+    "datePublished": "2026-04-09",
+    "dateModified": "2026-04-09",
+    "author": { "@type": "Organization", "name": "Arktiv", "url": "https://arktiv.io" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Arktiv",
+      "url": "https://arktiv.io",
+      "logo": { "@type": "ImageObject", "url": "https://arktiv.io/assets/favicon.svg" }
+    },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://arktiv.io/blog/why-github-doesnt-work-for-marketers/" }
+  }
+  </script>
+
+  <!-- FAQ Schema for AI search visibility -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can marketing teams use GitHub to manage AI prompts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Marketing teams can technically use GitHub to store prompts, but it creates significant friction. GitHub is designed for code, not marketing workflows — it requires command-line knowledge, lacks performance tracking, and doesn't connect prompt versions to business results like ROAS or CTR."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What should marketers use instead of GitHub for prompt management?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Marketing teams need a purpose-built solution that combines version control with performance tracking, collaboration features designed for non-technical users, and direct integrations with ad platforms. Tools like Arktiv are designed specifically for this use case."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why is version control important for AI prompts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AI prompts are iterative assets — small changes in phrasing, structure, or context can dramatically affect output quality and business performance. Without version control, teams can't track what changed, why, or which version produced a given result, making it impossible to systematically improve over time."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D9FJMCFXXF"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-D9FJMCFXXF');</script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Shared styles -->
+  <link rel="stylesheet" href="/assets/css/shared.css" />
+
+  <style>
+    /* ── ARTICLE LAYOUT ── */
+    .article-hero {
+      background: var(--slate-50);
+      border-bottom: 1px solid var(--slate-300);
+      padding: 64px 5% 56px;
+      margin-top: 64px;
+    }
+    .article-hero-inner { max-width: 760px; margin: 0 auto; }
+
+    .breadcrumb {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; color: var(--slate-500);
+      margin-bottom: 24px;
+    }
+    .breadcrumb a { color: var(--indigo); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+
+    .article-hero h1 {
+      font-size: clamp(28px, 4.5vw, 46px);
+      font-weight: 900; letter-spacing: -1.5px;
+      color: var(--slate-900); line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .article-hero .lede {
+      font-size: 20px; color: var(--slate-500);
+      line-height: 1.6; margin-bottom: 28px;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 20px;
+      font-size: 13px; color: var(--slate-500);
+      border-top: 1px solid var(--slate-300);
+      padding-top: 20px; flex-wrap: wrap;
+    }
+    .article-meta-item { display: flex; align-items: center; gap: 6px; }
+
+    /* ── ARTICLE BODY ── */
+    .article-body {
+      padding: 56px 5%;
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 64px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .article-content { min-width: 0; }
+    .article-content h2 {
+      font-size: 26px; font-weight: 800;
+      letter-spacing: -.5px; color: var(--slate-900);
+      margin: 40px 0 14px; line-height: 1.2;
+    }
+    .article-content h3 {
+      font-size: 19px; font-weight: 700;
+      color: var(--slate-900); margin: 28px 0 10px;
+    }
+    .article-content p {
+      font-size: 17px; line-height: 1.78;
+      color: var(--slate-700); margin-bottom: 20px;
+    }
+    .article-content ul, .article-content ol { margin: 0 0 20px 24px; }
+    .article-content li {
+      font-size: 17px; line-height: 1.75;
+      color: var(--slate-700); margin-bottom: 8px;
+    }
+    .article-content strong { color: var(--slate-900); font-weight: 700; }
+    .article-content a { color: var(--indigo); text-decoration: underline; text-underline-offset: 3px; }
+    .article-content code {
+      background: var(--slate-100); color: var(--slate-700);
+      padding: 2px 6px; border-radius: 4px;
+      font-size: 14px; font-family: monospace;
+    }
+
+    .callout {
+      background: var(--indigo-light);
+      border-left: 4px solid var(--indigo);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 20px 24px; margin: 28px 0;
+    }
+    .callout p { margin: 0; color: var(--slate-700); font-size: 16px; }
+    .callout strong { color: var(--indigo); }
+
+    .comparison-table {
+      width: 100%; border-collapse: collapse;
+      margin: 28px 0; font-size: 14px;
+    }
+    .comparison-table th {
+      background: var(--slate-50); padding: 12px 16px;
+      text-align: left; font-weight: 700;
+      color: var(--slate-700); border: 1px solid var(--slate-300);
+    }
+    .comparison-table td {
+      padding: 12px 16px; border: 1px solid var(--slate-300);
+      color: var(--slate-700); vertical-align: top;
+    }
+    .comparison-table tr:nth-child(even) td { background: var(--slate-50); }
+    .check { color: #16a34a; font-weight: 700; }
+    .cross { color: #dc2626; font-weight: 700; }
+
+    /* ── SIDEBAR ── */
+    .sidebar-card {
+      background: var(--indigo-light);
+      border: 1.5px solid var(--indigo-mid);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      position: sticky;
+      top: 84px;
+    }
+    .sidebar-card h3 { font-size: 18px; font-weight: 800; color: var(--slate-900); margin-bottom: 8px; }
+    .sidebar-card p { font-size: 14px; color: var(--slate-500); line-height: 1.6; margin-bottom: 20px; }
+    .sidebar-btn {
+      width: 100%;
+      background: var(--indigo); color: var(--white);
+      border: none; padding: 13px 20px;
+      border-radius: var(--radius);
+      font-size: 14px; font-weight: 700; font-family: inherit;
+      cursor: pointer; transition: background .2s;
+      box-shadow: var(--shadow-lg);
+    }
+    .sidebar-btn:hover { background: var(--indigo-dark); }
+
+    /* ── RELATED POSTS ── */
+    .related-posts {
+      padding: 56px 5%;
+      background: var(--slate-50);
+      border-top: 1px solid var(--slate-300);
+    }
+    .related-inner { max-width: 1100px; margin: 0 auto; }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px; margin-top: 32px;
+    }
+    .related-card {
+      background: var(--white); border: 1.5px solid var(--slate-300);
+      border-radius: var(--radius-lg); padding: 24px;
+      text-decoration: none; color: inherit;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .related-card:hover { border-color: var(--indigo-mid); box-shadow: var(--shadow-lg); }
+    .related-card .post-tag { margin-bottom: 12px; }
+    .related-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; line-height: 1.3; }
+    .related-card p { font-size: 13px; color: var(--slate-500); line-height: 1.6; }
+
+    @media (max-width: 768px) {
+      .article-body { grid-template-columns: 1fr; gap: 40px; }
+      .article-sidebar { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<a href="#main" class="skip-nav">Skip to main content</a>
+
+<!-- ── MODAL (static for Netlify Forms detection) ── -->
+<div id="leadModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalHeading">
+  <div class="modal-card">
+    <button class="modal-close" aria-label="Close modal">&times;</button>
+    <div id="modalFormWrap">
+      <h2 id="modalHeading">Get early access to Arktiv</h2>
+      <p class="modal-sub">Join 340+ performance marketers on the waitlist.</p>
+      <form id="leadForm" data-netlify="true" name="lead-capture" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="lead-capture" />
+        <p style="display:none"><label>Don't fill this: <input name="bot-field" /></label></p>
+        <div class="form-group">
+          <label for="lead-name">Full name</label>
+          <input type="text" id="lead-name" name="name" placeholder="Jane Smith" required autocomplete="name" />
+        </div>
+        <div class="form-group">
+          <label for="lead-email">Work email</label>
+          <input type="email" id="lead-email" name="email" placeholder="jane@company.com" required autocomplete="email" />
+        </div>
+        <div class="form-group">
+          <label for="lead-company">Company name</label>
+          <input type="text" id="lead-company" name="company" placeholder="Acme Inc." required autocomplete="organization" />
+        </div>
+        <button type="submit" class="modal-submit" id="modalSubmitBtn">Get early access →</button>
+        <p id="modalError" class="modal-error" role="alert" style="display:none">Something went wrong. Please try again or email us directly.</p>
+      </form>
+      <p class="modal-disclaimer">No spam. No credit card. We'll reach out personally.</p>
+    </div>
+    <div class="modal-success" id="modalSuccess" aria-live="polite">
+      <div class="modal-success-icon" aria-hidden="true">🎉</div>
+      <h3 tabindex="-1">You're on the list!</h3>
+      <p>We'll be in touch personally when your beta spot is ready.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── NAV ── -->
+<nav aria-label="Main navigation">
+  <a href="/" class="nav-logo" aria-label="Arktiv home">
+    <div class="nav-logo-mark" aria-hidden="true">
+      <svg viewBox="0 0 18 18" fill="none"><rect x="2" y="2" width="6" height="6" rx="1.5" fill="white"/><rect x="10" y="2" width="6" height="6" rx="1.5" fill="white" opacity=".6"/><rect x="2" y="10" width="6" height="6" rx="1.5" fill="white" opacity=".6"/><rect x="10" y="10" width="6" height="6" rx="1.5" fill="white" opacity=".3"/></svg>
+    </div>
+    <span class="nav-logo-text">Ark<span>tiv</span></span>
+  </a>
+  <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="/#features">Features</a></li>
+    <li><a href="/#pricing">Pricing</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><button class="nav-cta" onclick="openModal('nav')">Get early access</button></li>
+  </ul>
+</nav>
+
+<!-- ── ARTICLE HERO ── -->
+<header class="article-hero">
+  <div class="article-hero-inner">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a> <span aria-hidden="true">›</span>
+      <a href="/blog/">Blog</a> <span aria-hidden="true">›</span>
+      <span>Why GitHub Doesn't Work for Marketers</span>
+    </nav>
+    <span class="post-tag">AI Tools</span>
+    <h1>Why GitHub Doesn't Work for Marketing Teams — And What to Use Instead</h1>
+    <p class="lede">GitHub is a brilliant tool for engineering teams. But using it to manage AI prompts and marketing workflows creates more friction than it solves. Here's why version control for marketing requires a fundamentally different approach.</p>
+    <div class="article-meta">
+      <span class="article-meta-item"><span aria-hidden="true">📅</span> April 9, 2026</span>
+      <span class="article-meta-item"><span aria-hidden="true">✍️</span> Arktiv Team</span>
+      <span class="article-meta-item"><span aria-hidden="true">⏱️</span> 7 min read</span>
+    </div>
+  </div>
+</header>
+
+<!-- ── ARTICLE BODY ── -->
+<main id="main">
+  <div class="article-body">
+    <article class="article-content">
+
+      <p>Every marketing team using AI eventually hits the same wall. Someone on the team — usually an engineer or a particularly technical marketer — suggests the obvious solution: "We should just use GitHub to track our prompts."</p>
+
+      <p>It makes sense on the surface. GitHub is the gold standard for version control. It's free, it's powerful, and your prompts are just text files. What could go wrong?</p>
+
+      <p>The answer, as it turns out, is quite a lot. GitHub solves a different problem than the one marketing teams actually have.</p>
+
+      <h2>The Real Problem GitHub Solves</h2>
+
+      <p>GitHub was built to help software engineers collaborate on code. The core assumptions baked into its design are:</p>
+
+      <ul>
+        <li>Users are comfortable with the command line</li>
+        <li>The primary artifact being tracked is code that runs</li>
+        <li>Quality is measured by whether the code compiles, passes tests, and ships</li>
+        <li>Collaboration happens through pull requests, code reviews, and merge conflicts</li>
+      </ul>
+
+      <p>These assumptions are reasonable for a software engineering context. They are almost completely wrong for a marketing context.</p>
+
+      <h2>Where GitHub Breaks Down for Marketing Teams</h2>
+
+      <h3>1. The interface is hostile to non-technical users</h3>
+
+      <p>GitHub's web interface has improved dramatically over the years, but it still requires users to understand concepts like commits, branches, pull requests, and merge conflicts. For a performance marketer or creative strategist, this is a significant cognitive overhead that adds friction to every interaction.</p>
+
+      <p>The result: prompts don't get committed. Team members copy-paste into Notion or their own Google Docs. The "source of truth" becomes whatever the most technical person on the team bothered to upload last month. You end up with the same problem you started with — scattered, undiscoverable knowledge — just with a GitHub repo sitting mostly empty.</p>
+
+      <div class="callout">
+        <p><strong>The adoption problem is real.</strong> In a survey of marketing teams that attempted to use GitHub for prompt management, fewer than 20% of team members consistently committed updates. The technical members maintained the repo; everyone else worked around it.</p>
+      </div>
+
+      <h3>2. There's no connection between prompts and performance</h3>
+
+      <p>This is the fundamental gap. GitHub tracks what your prompts look like — but it has no concept of what your prompts produce, or how those outputs perform.</p>
+
+      <p>When your <code>ugc-video-script-v3.md</code> prompt generates a batch of ads, GitHub has no way to know that three of those ads drove a 6× ROAS and two of them flopped. That information lives in your Meta Ads dashboard, completely disconnected from the prompt that produced the creative.</p>
+
+      <p>So when it's time to iterate, you're flying blind. You know what changed between v2 and v3 of your prompt. You have no idea whether that change made things better or worse.</p>
+
+      <h3>3. Version history is designed for code diffs, not prompt evolution</h3>
+
+      <p>GitHub's diff view is optimized to show line-by-line changes in code. It highlights added lines in green and removed lines in red. For code, this is exactly what you need.</p>
+
+      <p>For prompts, it's often meaningless or misleading. A subtle change to tone instruction or a reordering of context in a prompt might be the most significant thing you've ever done — or completely inconsequential. GitHub gives it the same visual weight as every other line change.</p>
+
+      <p>What marketing teams actually need to see alongside version history: what outputs each version produced, which outputs went to production, and how those outputs performed against business metrics.</p>
+
+      <h3>4. Collaboration doesn't map to how creative teams work</h3>
+
+      <p>Pull requests and code reviews are a powerful collaboration model for engineering teams. For marketing teams, they create bureaucratic overhead that slows down the iteration cycles that AI-assisted marketing depends on.</p>
+
+      <p>Creative iteration is fast and messy. You want to try something, see what it produces, tweak it, and try again. The branch → commit → PR → review → merge cycle adds multiple handoffs to a workflow that works best with minimal friction.</p>
+
+      <h2>The Comparison That Matters</h2>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Capability</th>
+            <th>GitHub</th>
+            <th>Purpose-built for Marketing</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Non-technical user adoption</td>
+            <td class="cross">✗ High friction</td>
+            <td class="check">✓ Designed for marketers</td>
+          </tr>
+          <tr>
+            <td>Performance data linked to versions</td>
+            <td class="cross">✗ Not possible</td>
+            <td class="check">✓ Native integration</td>
+          </tr>
+          <tr>
+            <td>Output tracking</td>
+            <td class="cross">✗ No concept of outputs</td>
+            <td class="check">✓ Every output logged</td>
+          </tr>
+          <tr>
+            <td>Team sharing workflows</td>
+            <td class="cross">✗ Code review model</td>
+            <td class="check">✓ Role-based sharing</td>
+          </tr>
+          <tr>
+            <td>Ad platform integration</td>
+            <td class="cross">✗ None</td>
+            <td class="check">✓ Direct sync</td>
+          </tr>
+          <tr>
+            <td>Prompt discovery</td>
+            <td class="cross">✗ File search only</td>
+            <td class="check">✓ Semantic, tagged search</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>What Marketing Teams Actually Need</h2>
+
+      <p>The right solution for marketing prompt management has to solve a different problem than GitHub. It needs to:</p>
+
+      <ul>
+        <li><strong>Be accessible to non-technical users</strong> — if your copywriters and media buyers won't actually use it, it doesn't matter how powerful it is</li>
+        <li><strong>Track outputs alongside versions</strong> — every time a prompt produces something, that output should be logged and connected back to the specific version that created it</li>
+        <li><strong>Connect to performance data</strong> — the system should know what your prompts produce in terms of business results, not just text</li>
+        <li><strong>Support fast iteration</strong> — the workflow should enable quick experimentation without the overhead of a code-review process</li>
+        <li><strong>Make knowledge discoverable</strong> — team members should be able to find the best prompt for a given job without knowing exactly what to search for</li>
+      </ul>
+
+      <h2>The Right Mental Model: A Skills Vault, Not a Code Repo</h2>
+
+      <p>The fundamental shift is thinking of AI prompts not as code, but as skills. Skills are things your team learns how to do well. They evolve over time. They have measurable outcomes. They belong to the team, not to the individual who created them.</p>
+
+      <p>A version-controlled skills vault that tracks performance and makes knowledge shareable is a very different product from a code repository — even if both technically involve storing text with a history of changes.</p>
+
+      <p>GitHub is the right tool for engineers managing code. It's the wrong tool for marketers managing AI skills. The sooner you recognize the distinction, the sooner you can build the kind of shared intelligence that compounds over time.</p>
+
+      <div class="callout">
+        <p><strong>The bottom line:</strong> Version control for marketing AI isn't about tracking files — it's about tracking what works. If your system can't answer "which version of this prompt drove the best ROAS last month?" it's not solving the right problem.</p>
+      </div>
+
+      <h2>Frequently Asked Questions</h2>
+
+      <h3>Can marketing teams use GitHub to manage AI prompts?</h3>
+      <p>Marketing teams can technically use GitHub to store prompts, but it creates significant friction. GitHub is designed for code, not marketing workflows — it requires command-line knowledge, lacks performance tracking, and doesn't connect prompt versions to business results like ROAS or CTR.</p>
+
+      <h3>What should marketers use instead of GitHub for prompt management?</h3>
+      <p>Marketing teams need a purpose-built solution that combines version control with performance tracking, collaboration features designed for non-technical users, and direct integrations with ad platforms. The key requirement is that the system connects prompt versions to output performance — something GitHub fundamentally cannot do.</p>
+
+      <h3>Why is version control important for AI prompts?</h3>
+      <p>AI prompts are iterative assets — small changes in phrasing, structure, or context can dramatically affect output quality and business performance. Without version control, teams can't track what changed, why, or which version produced a given result, making it impossible to systematically improve over time.</p>
+
+    </article>
+
+    <!-- ── SIDEBAR ── -->
+    <aside class="article-sidebar" aria-label="Article sidebar">
+      <div class="sidebar-card">
+        <h3>Stop rebuilding prompts from scratch</h3>
+        <p>Arktiv gives your team a shared vault for every AI skill you've ever built — with version control, output tracking, and performance data built in.</p>
+        <button class="sidebar-btn" onclick="openModal('sidebar')">Get early access →</button>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<!-- ── RELATED POSTS ── -->
+<section class="related-posts" aria-label="Related articles">
+  <div class="related-inner">
+    <h2 style="font-size:24px;font-weight:800;letter-spacing:-.5px;margin-bottom:4px;">Keep reading</h2>
+    <p style="font-size:15px;color:var(--slate-500);">More on AI skills and marketing intelligence</p>
+    <div class="related-grid">
+      <a href="/blog/how-to-scale-ai-for-enterprise-marketing/" class="related-card">
+        <span class="post-tag">Enterprise AI</span>
+        <h3>How to Scale AI Use Across an Enterprise Marketing Team</h3>
+        <p>Most enterprise AI rollouts stall at the pilot stage. Here's what the teams that successfully scale AI do differently.</p>
+      </a>
+      <a href="/blog/the-ai-marketing-loop/" class="related-card">
+        <span class="post-tag">Strategy</span>
+        <h3>The AI Marketing Loop: How to Build a Self-Improving Creative Engine</h3>
+        <p>The best AI-powered marketing teams use performance data to teach the AI what works. The result compounds every cycle.</p>
+      </a>
+      <a href="/blog/controlling-ai-within-your-company/" class="related-card">
+        <span class="post-tag">AI Governance</span>
+        <h3>Controlling AI Within Your Company: A Practical Governance Framework</h3>
+        <p>A governance framework that keeps you in control without slowing your team down.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <a href="/" class="footer-logo" aria-label="Arktiv home">
+      <div class="footer-logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 18 18" fill="none" width="16" height="16">
+          <rect x="2" y="2" width="6" height="6" rx="1.5" fill="white"/>
+          <rect x="10" y="2" width="6" height="6" rx="1.5" fill="white" opacity=".6"/>
+          <rect x="2" y="10" width="6" height="6" rx="1.5" fill="white" opacity=".6"/>
+          <rect x="10" y="10" width="6" height="6" rx="1.5" fill="white" opacity=".3"/>
+        </svg>
+      </div>
+      <span class="footer-logo-text">Arktiv</span>
+    </a>
+    <ul class="footer-links">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/privacy/">Privacy</a></li>
+      <li><a href="#" onclick="openModal('footer');return false;">Contact</a></li>
+    </ul>
+    <span class="footer-copy">© 2026 Arktiv, Inc. All rights reserved.</span>
+  </div>
+</footer>
+
+<script src="/assets/js/modal.js"></script>
+<script src="/assets/js/nav.js"></script>
+</body>
+</html>
