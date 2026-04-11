@@ -20,22 +20,8 @@
     Cache-Control = "public, max-age=31536000, immutable"
 
 # ── REDIRECTS ─────────────────────────────────────────────────
-# Canonical trailing slash for /blog
-[[redirects]]
-  from   = "/blog"
-  to     = "/blog/"
-  status = 301
-  force  = true
-
-# Canonical trailing slash for /privacy
-[[redirects]]
-  from   = "/privacy"
-  to     = "/privacy/"
-  status = 301
-  force  = true
-
-# Custom 404 — do NOT redirect to index.html (that confuses crawlers)
-[[redirects]]
-  from   = "/*"
-  to     = "/404.html"
-  status = 404
+# NOTE: No redirect rules needed for this static site.
+# - Netlify natively handles trailing slashes for directories (/blog → /blog/)
+# - Netlify natively serves 404.html for any unmatched path (no catch-all needed)
+# Adding manual rules for either of these conflicts with Netlify's built-in
+# behavior and causes ERR_TOO_MANY_REDIRECTS loops.
