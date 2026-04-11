@@ -11,7 +11,7 @@
     Permissions-Policy         = "camera=(), microphone=(), geolocation=()"
     Strict-Transport-Security  = "max-age=31536000; includeSubDomains; preload"
     # CSP: includes all GA4 regional endpoints and HubSpot
-    Content-Security-Policy    = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://api.hsforms.com https://js.hsforms.net https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://region1.analytics.google.com https://api.hsforms.com; frame-src 'none';"
+    Content-Security-Policy    = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://api.hsforms.com https://js.hsforms.net https://js-na2.hsforms.net https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://region1.analytics.google.com https://api.hsforms.com; frame-src 'none';"
 
 # ── ASSET CACHING ─────────────────────────────────────────────
 [[headers]]

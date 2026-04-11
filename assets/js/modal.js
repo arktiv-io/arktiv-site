@@ -7,7 +7,7 @@
 // TODO: Replace with your HubSpot Form GUID from:
 // HubSpot → Marketing → Forms → [your form] → Actions → Share → Embed code
 const HS_PORTAL_ID = '245853125';
-const HS_FORM_GUID = 'REPLACE_WITH_HUBSPOT_FORM_GUID';
+const HS_FORM_GUID = '15425c8d-32be-42d9-9d07-f60b0a2dc191';
 
 // ── STATE ────────────────────────────────────────────────────
 let _lastFocusedElement = null;
