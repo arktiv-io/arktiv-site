@@ -20,8 +20,16 @@
     Cache-Control = "public, max-age=31536000, immutable"
 
 # ── REDIRECTS ─────────────────────────────────────────────────
-# NOTE: No redirect rules needed for this static site.
+# NOTE: No trailing-slash or 404 catch-all rules here.
 # - Netlify natively handles trailing slashes for directories (/blog → /blog/)
 # - Netlify natively serves 404.html for any unmatched path (no catch-all needed)
 # Adding manual rules for either of these conflicts with Netlify's built-in
 # behavior and causes ERR_TOO_MANY_REDIRECTS loops.
+
+# Redirect the default Netlify subdomain to the canonical domain.
+# This prevents Google from indexing arktiv.netlify.app as a duplicate.
+[[redirects]]
+  from   = "https://arktiv.netlify.app/*"
+  to     = "https://arktiv.io/:splat"
+  status = 301
+  force  = true
