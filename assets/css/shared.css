@@ -232,7 +232,7 @@ nav.sticky { position: sticky; }
   flex-shrink: 0;
 }
 
-.modal-card h2 {
+.modal-card .modal-heading {
   font-size: 24px;
   font-weight: 800;
   letter-spacing: -0.5px;
@@ -332,7 +332,7 @@ nav.sticky { position: sticky; }
 
 .modal-success-icon { font-size: 48px; margin-bottom: 16px; }
 
-.modal-success h3 {
+.modal-success .modal-success-heading {
   font-size: 20px;
   font-weight: 800;
   color: var(--slate-900);
